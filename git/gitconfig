@@ -1,0 +1,7 @@
+[user]
+	email = jinghaotu213@jht213.com
+	name = Jinghao Tu
+[core]
+	pager = more
+[init]
+	defaultBranch = main

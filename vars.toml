@@ -1,0 +1,16 @@
+[secrets]
+cf_token = """
+hF4DQWZvPqA2MXcSAQdAuL92OrJmlM++LUitemre0rIqPkV9oCCSy+M/Ltb29hcw
+ISr8IUdNmBHc7Bi8ATH3rHnywlSx13PA2ACFejskrcOlzTNxZXtWq1kyV/DMUCK5
+0mMB4EdAxB7VauGBJzajOMPjwnrClQSIByrpG2hNeJW/3ufZGPuc+k9ND/K3b0Vs
+YNiisroKRerETd1Oh/M0VIsqu9Thr5WDaz++VcC/RKF5lqC0+pLCjoelceeHPRuu
+moE/1MM=
+=e5G7
+"""
+cf_zone_id = """
+hF4DQWZvPqA2MXcSAQdAlmsnN05eqcBOY2qU4j8+hIMEYdl39fJ56YnktQxjZQAw
+Fkw4ot8lHR2iSL6cQQMH7XcT+gFlbmbWhesRQYX9Nt8m2rIXLhz85m2cho3wsAz5
+0loBSUC85+l7+iOJgcr0IHFv0hi+ceE+w2ZLV0hoIZpuJqEw82wL9uP4Mm9ya99r
+BgUyuWVCAkmYiE5mSL5oyXW/tYgmz+QFXYBPKwM4rteR0aSX/ZsLRZ4I/bs=
+=QpiF
+"""

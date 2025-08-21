@@ -1,0 +1,93 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt HIST_IGNORE_DUPS
+# End of lines configured by zsh-newuser-install
+
+# The following lines were added by compinstall
+zstyle :compinstall filename "$HOME/.zshrc"
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+# ignore A or a
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+# zsh-histroty-substring-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=(bg=none)
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=(bg=none)
+# zsh-autocompletion-partial-word
+bindkey '^[[1;5C' forward-word
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# >>> EDITOR >>>
+export EDITOR='nvim'
+# <<< EDITOR <<<
+
+# >>> xterm-256color and truecolor >>>
+# export TERM=xterm-256color
+export TERM=xterm-kitty
+export COLORTERM=truecolor
+# <<< xterm-256color and truecolor <<<
+
+# >>> replace vi and vim to nvim >>>
+alias vim='nvim'
+alias vi='nvim'
+# <<< replace vi and vim to nvim <<<
+
+# >>> cargo >>>
+# . $HOME/.cargo/env
+export PATH=$HOME/.cargo/bin:$PATH
+# <<< cargo <<<
+
+# >>> acme.sh >>>
+export CF_Token="{{secrets.cf_token}}"
+export CF_Zone_ID="{{secrets.cf_zone_id}}"
+# <<< acme.sh <<<
+
+# >>> pkgfile command-not-found >>>
+source /usr/share/doc/pkgfile/command-not-found.zsh
+# <<< pkgfile command-not-found <<<
+
+# >>> some quick command to check files
+function ll() {
+    command ls -hlA $@
+}
+function ds() {
+    local dirs=("${@:-.}")
+    local total=${#dirs[@]}
+    for i in {1..$total}; do
+        local dir="${dirs[i]}"
+        echo "${dir}"
+        command du -h --max-depth=1 "$dir" | sort -h
+        (( i != total )) && echo
+    done
+}
+# <<< some quick command to check files
+
+# >>> uv
+export PATH=$HOME/.local/bin:$PATH
+# <<< uv
+
+# >>> zoxide
+eval "$(zoxide init zsh --cmd cd)"
+# <<< zoxide
+
+# >>> fzf
+source <(fzf --zsh)
+# <<< fzf

@@ -1,0 +1,27 @@
+# Path to your dotfile directory containing this config file (relative to $HOME). 
+dotfiles_dir = "dotfiles"
+
+# (Optional) GPG user id for secret encryption/decryption.
+gpg_user_id = "jinghaotu213@jht213.com"
+
+# (Optional) list of bombadil config files to include in the configuration. 
+# import = [
+#    { path = "wm/sway/sway.toml" },
+#    { path = "wm/i3/i3.toml" },
+# ]
+
+[settings]
+# An array of toml files paths containing the variables to inject in your templatized dotfiles.
+vars = [ "vars.toml"]
+
+# An array of post install shell commands
+# posthooks = [ "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'" ]]
+
+
+# Dotfiles template with their respective `source` template and `target` directories.
+# A dot entry representing a symlink, `source` is relative to `dotfiles_dir`
+# and `target` shall be relative to $HOME directory or absolute.
+[settings.dots]
+zsh = { source = "zsh/zshrc", target = ".zshrc" }
+gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
+nvim = { source = "nvim", target = ".config/nvim" }
