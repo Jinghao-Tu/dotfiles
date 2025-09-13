@@ -23,5 +23,6 @@ vars = [ "vars.toml"]
 # and `target` shall be relative to $HOME directory or absolute.
 [settings.dots]
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
+p10k-zsh = { source = "zsh/p10k-instant-prompt-jht213.zsh", target = ".cache/p10k-instant-prompt-jht213.zsh" }
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
 nvim = { source = "nvim", target = ".config/nvim" }
