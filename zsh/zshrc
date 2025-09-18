@@ -65,6 +65,7 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 # <<< pkgfile command-not-found <<<
 
 # >>> some quick command to check files
+{% raw -%}
 function ll() {
     command ls -hlA $@
 }
@@ -78,6 +79,7 @@ function ds() {
         (( i != total )) && echo
     done
 }
+{%- endraw %}
 # <<< some quick command to check files
 
 # >>> uv
