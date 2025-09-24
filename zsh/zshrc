@@ -18,10 +18,15 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+local zsh_plugins=(
+  /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+  /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+)
+for file in "${zsh_plugins[@]}"; do
+  [[ -r "$file" ]] && source "$file"
+done
 # ignore A or a
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 # zsh-histroty-substring-search
@@ -41,7 +46,8 @@ export EDITOR='nvim'
 
 # >>> xterm-256color and truecolor >>>
 # export TERM=xterm-256color
-export TERM=xterm-kitty
+# export TERM=xterm-kitty
+infocmp xterm-kitty &>/dev/null && export TERM=xterm-kitty || export TERM=xterm-256color
 export COLORTERM=truecolor
 # <<< xterm-256color and truecolor <<<
 
@@ -61,7 +67,7 @@ export CF_Zone_ID="{{secrets.cf_zone_id}}"
 # <<< acme.sh <<<
 
 # >>> pkgfile command-not-found >>>
-source /usr/share/doc/pkgfile/command-not-found.zsh
+[[ ! -f /usr/share/doc/pkgfile/command-not-found.zsh ]] || source /usr/share/doc/pkgfile/command-not-found.zsh
 # <<< pkgfile command-not-found <<<
 
 # >>> some quick command to check files
@@ -87,9 +93,9 @@ export PATH=$HOME/.local/bin:$PATH
 # <<< uv
 
 # >>> zoxide
-eval "$(zoxide init zsh --cmd cd)"
+command -v zoxide &> /dev/null && eval "$(zoxide init zsh --cmd cd)"
 # <<< zoxide
 
 # >>> fzf
-source <(fzf --zsh)
+command -v fzf &> /dev/null && source <(fzf --zsh)
 # <<< fzf
