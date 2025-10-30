@@ -99,3 +99,7 @@ command -v zoxide &> /dev/null && eval "$(zoxide init zsh --cmd cd)"
 # >>> fzf
 command -v fzf &> /dev/null && source <(fzf --zsh)
 # <<< fzf
+
+# >>> rm
+alias rm='echo "This is not the command you are looking for. Use trash-cli"; false'
+# <<< rm
