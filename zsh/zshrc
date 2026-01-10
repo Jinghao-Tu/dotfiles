@@ -40,6 +40,10 @@ bindkey '^[[1;5C' forward-word
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# >>> sudo >>>
+alias sudo='sudo '
+# <<< sudo <<<
+
 # >>> EDITOR >>>
 export EDITOR='nvim'
 # <<< EDITOR <<<
@@ -101,5 +105,10 @@ command -v fzf &> /dev/null && source <(fzf --zsh)
 # <<< fzf
 
 # >>> rm
-alias rm='echo "This is not the command you are looking for. Use trash-cli"; false'
+alias rm='rmtrash'
+alias rmdir='rmdirtrash'
 # <<< rm
+
+# >>> bun
+export PATH=$HOME/.bun/bin:$PATH
+# <<< bun
