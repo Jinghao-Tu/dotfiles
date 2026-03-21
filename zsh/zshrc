@@ -105,10 +105,10 @@ command -v fzf &> /dev/null && source <(fzf --zsh)
 # <<< fzf
 
 # >>> rm
-alias rm='rmtrash'
-alias rmdir='rmdirtrash'
+alias rm='trash'
+alias rmdir='trash'
 # <<< rm
 
-# >>> bun
-export PATH=$HOME/.bun/bin:$PATH
-# <<< bun
+# >>> mise
+eval "$(mise activate zsh)"
+# <<< mise
