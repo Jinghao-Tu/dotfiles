@@ -12,7 +12,7 @@ gpg_user_id = "jinghaotu213@jht213.com"
 
 [settings]
 # An array of toml files paths containing the variables to inject in your templatized dotfiles.
-vars = [ "vars.toml"]
+vars = ["vars.toml"]
 
 # An array of post install shell commands
 # posthooks = [ "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'" ]]
@@ -24,6 +24,8 @@ vars = [ "vars.toml"]
 [settings.dots]
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
 p10k-prompt-zsh = { source = "zsh/p10k-instant-prompt-jht213.zsh", target = ".cache/p10k-instant-prompt-jht213.zsh", direct = true }
-p10k-zsh = { source="zsh/p10k.zsh", target = ".p10k.zsh", direct = true }
+p10k-zsh = { source = "zsh/p10k.zsh", target = ".p10k.zsh", direct = true }
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
 nvim = { source = "nvim", target = ".config/nvim" }
+# vim = { source = "vim", target = ".vim" }
+# vimrc = { source = "vim/vimrc", target = ".vimrc", direct = true }
