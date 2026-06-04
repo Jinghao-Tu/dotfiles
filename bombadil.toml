@@ -27,5 +27,21 @@ p10k-prompt-zsh = { source = "zsh/p10k-instant-prompt-jht213.zsh", target = ".ca
 p10k-zsh = { source = "zsh/p10k.zsh", target = ".p10k.zsh", direct = true }
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
 nvim = { source = "nvim", target = ".config/nvim" }
+hypr = { source = "hypr", target = ".config/hypr" }
+niri = { source = "niri", target = ".config/niri" }
+waybar = { source = "waybar", target = ".config/waybar" }
+fuzzel = { source = "fuzzel", target = ".config/fuzzel" }
+mako = { source = "mako", target = ".config/mako" }
+dunst = { source = "dunst", target = ".config/dunst" }
+kitty = { source = "kitty", target = ".config/kitty" }
+yazi = { source = "yazi", target = ".config/yazi", direct = true }
+helix = { source = "helix", target = ".config/helix" }
+fontconfig = { source = "fontconfig", target = ".config/fontconfig" }
+chrome-flags = { source = "flags/chrome-flags.conf", target = ".config/chrome-flags.conf" }
+code-flags = { source = "flags/code-flags.conf", target = ".config/code-flags.conf" }
+gtkrc-2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
+gtk-2 = { source = "gtk/gtk-2.0", target = ".config/gtk-2.0" }
+gtk-3 = { source = "gtk/gtk-3.0", target = ".config/gtk-3.0" }
+gtk-4 = { source = "gtk/gtk-4.0", target = ".config/gtk-4.0" }
 # vim = { source = "vim", target = ".vim" }
 # vimrc = { source = "vim/vimrc", target = ".vimrc", direct = true }
