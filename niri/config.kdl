@@ -321,7 +321,7 @@ spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-sh-at-startup "python ~/.config/niri/window-script.py"
-spawn-at-startup "/usr/bin/start-win11-freerdp"
+// spawn-at-startup "/usr/bin/start-win11-freerdp"
 spawn-sh-at-startup "sleep 7.0; clash-verge"
 spawn-sh-at-startup "export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh"
 
