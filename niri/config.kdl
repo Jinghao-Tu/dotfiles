@@ -40,8 +40,8 @@ input {
     mouse {
         // off
         // natural-scroll
-         accel-speed 0.0
-        // accel-profile "flat"
+        accel-speed 0.0
+        accel-profile "flat"
         // scroll-method "no-scroll"
     }
 
@@ -102,21 +102,28 @@ output "HDMI-A-1" {
     // automatically.
     // position x=0 y=0
 }
-output "DP-3" {
+output "DP-6" {
     mode "2560x1440"
     scale 1
     transform "normal"
-    position x=0 y=1707
-    // position x=0 y=0
+    position x=0 y=0
     // variable-refresh-rate
     focus-at-startup
 }
 output "DP-2" {
-    // off
+    off
     mode "3840x2560"
     scale 1.5
     transform "normal"
     position x=0 y=0
+}
+output "DP-1" {
+    off
+    mode "2560x1440"
+    scale 1
+    transform "normal"
+    position x=0 y=1707
+    focus-at-startup
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -322,7 +329,7 @@ spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-sh-at-startup "python ~/.config/niri/window-script.py"
 // spawn-at-startup "/usr/bin/start-win11-freerdp"
-spawn-sh-at-startup "sleep 7.0; clash-verge"
+spawn-sh-at-startup "for i in $(seq 1 60); do [ -S /tmp/verge/clash-verge-service.sock ] && exec env WEBKIT_DISABLE_DMABUF_RENDERER=1 clash-verge; sleep 0.5; done; exec env WEBKIT_DISABLE_DMABUF_RENDERER=1 clash-verge"
 spawn-sh-at-startup "export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -355,29 +362,24 @@ window-rule {
     clip-to-geometry true
 }
 window-rule {
-    match app-id="google-chrome"
-    match app-id="code"
-    match app-id="dev.zed.Zed"
-    // default-column-width { proportion 1.0; }
-    open-maximized true
-}
-window-rule {
     match app-id="QQ" title="图片查看器"
     match app-id="QQ" title="^(.*)(聊天记录)"
     open-floating true
 }
 window-rule {
-    match app-id="Zotero"
-    open-floating true
-    // window-script.py do other things.
+    match app-id="google-chrome"
+    match app-id="code"
+    match app-id="dev.zed.Zed"
+    match app-id="^libreoffice-.*$"
+    open-maximized true
 }
 window-rule {
     match app-id="kitty"
+    match app-id="clash-verge"
     default-column-width { proportion 0.33333; }
 }
 window-rule {
-    match app-id="com.freerdp.client.sdl3" title="^win11-docker$"
-    open-on-output "DP-2"
+    default-column-width { proportion 1.0; }
 }
 
 binds {
@@ -395,7 +397,7 @@ binds {
     Mod+Y hotkey-overlay-title="Open a File Manager: Yazi" { spawn "kitty" "yazi"; }
     Mod+C { spawn "code"; }
     Mod+E { spawn "google-chrome-stable"; }
-    Mod+Z { spawn "zotero"; }
+    Mod+X { spawn "gtk-launch codex-desktop.desktop"; }
 
     XF86AudioRaiseVolume allow-when-locked=true hotkey-overlay-title=null { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%+"; }
     XF86AudioLowerVolume allow-when-locked=true hotkey-overlay-title=null { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%-"; }
